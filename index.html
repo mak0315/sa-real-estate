@@ -1,0 +1,641 @@
+ash
+
+cat > /mnt/user-data/outputs/badr-real-estate.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badr Real Estate – Your Trusted Property Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-light: #162336;
+    --navy-mid: #1e3050;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --cream: #f8f4ed;
+    --text-dark: #0d1b2a;
+    --text-muted: #6b7c93;
+    --white: #ffffff;
+    --border: rgba(201,168,76,0.2);
+    --wa-green: #25d366;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4vw;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--gold);
+  }
+  .nav-logo span { color: var(--white); font-weight: 300; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-wa {
+    background: var(--wa-green); color: white;
+    border: none; padding: 0.55rem 1.2rem; border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+    font-weight: 500; cursor: pointer; text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: opacity 0.2s;
+  }
+  .nav-wa:hover { opacity: 0.88; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(to bottom, rgba(13,27,42,0.6) 0%, rgba(13,27,42,0.85) 70%, var(--navy) 100%),
+      url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80') center/cover no-repeat;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 0 1.5rem;
+    position: relative;
+  }
+  .hero-badge {
+    font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border);
+    padding: 0.4rem 1.2rem; border-radius: 2rem; margin-bottom: 2rem;
+    backdrop-filter: blur(4px);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.1;
+    margin-bottom: 1.5rem; color: var(--white);
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 520px;
+    line-height: 1.8; margin-bottom: 2.5rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-gold {
+    background: var(--gold); color: var(--navy);
+    border: none; padding: 0.85rem 2rem; border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; text-decoration: none; transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3); padding: 0.85rem 2rem; border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+    cursor: pointer; text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat strong {
+    display: block; font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; color: var(--gold); line-height: 1;
+  }
+  .hero-stat span { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; display: block; }
+
+  /* ── SECTION COMMONS ─────────────────────────────── */
+  section { padding: 5rem 5vw; }
+  .section-label {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .divider { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+
+  /* ── PROPERTIES ──────────────────────────────────── */
+  #properties { background: var(--navy-light); }
+  .props-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .props-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .prop-card {
+    background: var(--navy-mid); border-radius: 1rem; overflow: hidden;
+    border: 1px solid var(--border); transition: transform 0.25s, border-color 0.25s;
+    cursor: pointer;
+  }
+  .prop-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .prop-img {
+    width: 100%; height: 210px; object-fit: cover;
+    background: var(--navy-mid);
+    display: block;
+  }
+  .prop-img-placeholder {
+    width: 100%; height: 210px;
+    background: linear-gradient(135deg, #1e3050 0%, #162336 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(201,168,76,0.4);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .prop-body { padding: 1.4rem; }
+  .prop-tag {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); background: rgba(201,168,76,0.12);
+    padding: 0.25rem 0.7rem; border-radius: 2rem; display: inline-block; margin-bottom: 0.8rem;
+  }
+  .prop-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+    margin-bottom: 0.4rem; color: var(--white);
+  }
+  .prop-loc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .prop-meta { display: flex; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1.2rem; }
+  .prop-price {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600;
+    color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .prop-wa {
+    width: 100%; background: var(--wa-green); color: white; border: none;
+    padding: 0.7rem; border-radius: 0.5rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    transition: opacity 0.2s;
+  }
+  .prop-wa:hover { opacity: 0.88; }
+
+  /* ── WHY US ──────────────────────────────────────── */
+  #why { background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .why-card {
+    border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: var(--gold); }
+  .why-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(201,168,76,0.12); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .why-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .why-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--white); }
+  .why-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── AREAS ───────────────────────────────────────── */
+  #areas { background: var(--navy-light); }
+  .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .area-card {
+    border-radius: 1rem; overflow: hidden; border: 1px solid var(--border);
+    background: var(--navy-mid); position: relative; min-height: 200px;
+    display: flex; align-items: flex-end;
+    transition: border-color 0.2s; cursor: pointer;
+  }
+  .area-card:hover { border-color: var(--gold); }
+  .area-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,27,42,0.95) 30%, rgba(13,27,42,0.2) 100%);
+    z-index: 1;
+  }
+  .area-img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35;
+  }
+  .area-body { position: relative; z-index: 2; padding: 1.5rem; }
+  .area-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; }
+  .area-body p { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem; }
+
+  /* ── SELL BANNER ─────────────────────────────────── */
+  #sell {
+    background:
+      linear-gradient(to right, rgba(13,27,42,0.92), rgba(13,27,42,0.7)),
+      url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80') center/cover no-repeat;
+    text-align: center; padding: 6rem 5vw;
+  }
+  #sell p { max-width: 540px; margin: 1rem auto 2.5rem; color: rgba(255,255,255,0.6); line-height: 1.8; }
+
+  /* ── CONTACT ─────────────────────────────────────── */
+  #contact { background: var(--navy); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .contact-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; font-size: 0.9rem; }
+  .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(201,168,76,0.1); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .contact-detail-text span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-detail-text a, .contact-detail-text strong { color: var(--white); font-size: 0.95rem; text-decoration: none; }
+  .contact-wa-big {
+    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    background: var(--wa-green); color: white; border: none;
+    padding: 1rem 2rem; border-radius: 0.6rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none;
+    margin-top: 2rem; transition: opacity 0.2s;
+  }
+  .contact-wa-big:hover { opacity: 0.88; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    background: var(--navy-light); border: 1px solid var(--border); color: var(--white);
+    padding: 0.85rem 1rem; border-radius: 0.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form select option { background: var(--navy); }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+  .contact-form button {
+    background: var(--gold); color: var(--navy); border: none;
+    padding: 0.9rem; border-radius: 0.5rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.2s;
+  }
+  .contact-form button:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer {
+    background: var(--navy-light); border-top: 1px solid var(--border);
+    padding: 3rem 5vw 2rem; text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    font-weight: 600; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .footer-logo span { color: var(--white); font-weight: 300; }
+  footer p { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.4rem; }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  footer .copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); margin-top: 1.5rem; }
+
+  /* ── FLOATING WA ─────────────────────────────────── */
+  .float-wa {
+    position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 999;
+    background: var(--wa-green); color: white; border: none;
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .float-wa:hover { transform: scale(1.08); }
+  .float-wa svg { width: 28px; height: 28px; fill: white; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { gap: 1.5rem; bottom: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/923155881733?text=Hello%2C%20I%20found%20you%20on%20your%20website%20and%20I%27m%20interested%20in%20a%20property."
+   class="float-wa" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Badr <span>Real Estate</span></div>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#sell">Sell</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/923155881733?text=Hello%2C%20I%27m%20interested%20in%20a%20property%20listed%20on%20Badr%20Real%20Estate."
+     class="nav-wa" target="_blank">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Sultanpur · Havelian · Abbottabad</div>
+  <h1>Find Your Ideal<br><em>Property</em> with Confidence</h1>
+  <p>Buy, sell, and invest in premium properties across Sultanpur, Havelian, and Abbottabad. Trusted local expertise, transparent service.</p>
+  <div class="hero-btns">
+    <a href="#properties" class="btn-gold">Browse Properties</a>
+    <a href="https://wa.me/923155881733?text=I%20want%20to%20list%20my%20property%20with%20Badr%20Real%20Estate." class="btn-outline" target="_blank">List Your Property</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>100+</strong><span>Properties Listed</span></div>
+    <div class="hero-stat"><strong>3</strong><span>Cities Covered</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>WhatsApp Support</span></div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="props-header">
+    <div>
+      <p class="section-label">Available Now</p>
+      <h2 class="section-title">Featured <em>Properties</em></h2>
+    </div>
+    <a href="https://wa.me/923155881733?text=I%27d%20like%20to%20see%20all%20available%20properties." class="btn-outline" target="_blank" style="font-size:0.82rem;">View All →</a>
+  </div>
+  <div class="props-grid">
+
+    <!-- Card 1 -->
+    <div class="prop-card">
+      <div class="prop-img-placeholder" style="background:linear-gradient(135deg,#1a2f46,#0d1b2a);">
+        <span style="font-size:0.85rem;letter-spacing:0.15em;color:rgba(201,168,76,0.5);">Residential Plot</span>
+      </div>
+      <div class="prop-body">
+        <span class="prop-tag">Residential Plot</span>
+        <h3 class="prop-title">5 Marla Corner Plot</h3>
+        <p class="prop-loc">📍 Sultanpur, Havelian</p>
+        <div class="prop-meta"><span>5 Marla</span><span>Corner</span><span>Registry Available</span></div>
+        <div class="prop-price">PKR 45 Lac</div>
+        <a href="https://wa.me/923155881733?text=I%27m%20interested%20in%20the%205%20Marla%20Corner%20Plot%20in%20Sultanpur%20for%20PKR%2028%20Lac.%20Please%20share%20more%20details."
+           class="prop-wa" target="_blank">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="prop-card">
+      <div class="prop-img-placeholder" style="background:linear-gradient(135deg,#1a3040,#101e2c);">
+        <span style="font-size:0.85rem;letter-spacing:0.15em;color:rgba(201,168,76,0.5);">House</span>
+      </div>
+      <div class="prop-body">
+        <span class="prop-tag">House</span>
+        <h3 class="prop-title">5 Marla Double Storey House</h3>
+        <p class="prop-loc">📍 Havelian City</p>
+        <div class="prop-meta"><span>5 Marla</span><span>4 Beds</span><span>3 Baths</span></div>
+        <div class="prop-price">PKR 85 Lac</div>
+        <a href="https://wa.me/923155881733?text=I%27m%20interested%20in%20the%205%20Marla%20Double%20Storey%20House%20in%20Havelian%20for%20PKR%2085%20Lac.%20Please%20share%20more%20details."
+           class="prop-wa" target="_blank">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="prop-card">
+      <div class="prop-img-placeholder" style="background:linear-gradient(135deg,#162840,#0d1f30);">
+        <span style="font-size:0.85rem;letter-spacing:0.15em;color:rgba(201,168,76,0.5);">Commercial</span>
+      </div>
+      <div class="prop-body">
+        <span class="prop-tag">Commercial</span>
+        <h3 class="prop-title">Shop on Main Bazar Road</h3>
+        <p class="prop-loc">📍 Main Bazar, Sultanpur</p>
+        <div class="prop-meta"><span>200 sq ft</span><span>Ground Floor</span><span>Road Facing</span></div>
+        <div class="prop-price">PKR 45 Lac</div>
+        <a href="https://wa.me/923155881733?text=I%27m%20interested%20in%20the%20Shop%20on%20Main%20Bazar%20Road%20Sultanpur%20for%20PKR%2045%20Lac.%20Please%20share%20more%20details."
+           class="prop-wa" target="_blank">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="prop-card">
+      <div class="prop-img-placeholder" style="background:linear-gradient(135deg,#1a2840,#101828);">
+        <span style="font-size:0.85rem;letter-spacing:0.15em;color:rgba(201,168,76,0.5);">Agricultural</span>
+      </div>
+      <div class="prop-body">
+        <span class="prop-tag">Agricultural Land</span>
+        <h3 class="prop-title">10 Kanal Fertile Land</h3>
+        <p class="prop-loc">📍 Outskirts, Sultanpur</p>
+        <div class="prop-meta"><span>10 Kanal</span><span>Water Available</span><span>Road Access</span></div>
+        <div class="prop-price">PKR 1.2 Crore</div>
+        <a href="https://wa.me/923155881733?text=I%27m%20interested%20in%20the%2010%20Kanal%20Agricultural%20Land%20in%20Sultanpur%20for%20PKR%201.2%20Crore.%20Please%20share%20more%20details."
+           class="prop-wa" target="_blank">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="prop-card">
+      <div class="prop-img-placeholder" style="background:linear-gradient(135deg,#182840,#0f1e30);">
+        <span style="font-size:0.85rem;letter-spacing:0.15em;color:rgba(201,168,76,0.5);">Plot</span>
+      </div>
+      <div class="prop-body">
+        <span class="prop-tag">Residential Plot</span>
+        <h3 class="prop-title">10 Marla Residential Plot</h3>
+        <p class="prop-loc">📍 Havelian Housing Scheme</p>
+        <div class="prop-meta"><span>10 Marla</span><span>Developed Area</span><span>Gas Available</span></div>
+        <div class="prop-price">PKR 55 Lac</div>
+        <a href="https://wa.me/923155881733?text=I%27m%20interested%20in%20the%2010%20Marla%20Residential%20Plot%20in%20Havelian%20Housing%20Scheme%20for%20PKR%2055%20Lac.%20Please%20share%20more%20details."
+           class="prop-wa" target="_blank">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 6 - CTA -->
+    <div class="prop-card" style="display:flex;align-items:center;justify-content:center;min-height:350px;background:rgba(201,168,76,0.06);border-style:dashed;">
+      <div style="text-align:center;padding:2rem;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--gold);margin-bottom:0.5rem;">+</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;margin-bottom:0.8rem;">More Properties Available</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.5rem;">Chat with us to see all listings across Sultanpur, Havelian & Abbottabad.</p>
+        <a href="https://wa.me/923155881733?text=Please%20share%20all%20available%20property%20listings." class="btn-gold" target="_blank" style="font-size:0.82rem;">See All on WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <p class="section-label">Why Badr Real Estate</p>
+  <h2 class="section-title">Trusted. Transparent.<br><em>Local Expertise.</em></h2>
+  <div class="divider"></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Verified Listings</h3>
+      <p>Every property is personally checked by our team. No fake listings, no wasted trips.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Local Market Knowledge</h3>
+      <p>Born and raised in Hazara — we know every street in Sultanpur and Havelian.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Transparent Transactions</h3>
+      <p>Clear pricing, honest commission. You always know exactly what you're paying for.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Professional Guidance</h3>
+      <p>We guide you through every step — from property search to final registry.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>WhatsApp Support</h3>
+      <p>Reach us anytime on WhatsApp. Quick replies, no waiting, real people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section id="areas">
+  <p class="section-label">Where We Operate</p>
+  <h2 class="section-title">Our Service <em>Areas</em></h2>
+  <div class="divider"></div>
+  <div class="areas-grid">
+    <div class="area-card" onclick="window.open('https://wa.me/923155881733?text=I%27m%20looking%20for%20property%20in%20Sultanpur.','_blank')">
+      <div class="area-bg"></div>
+      <div class="area-body">
+        <h3>Sultanpur</h3>
+        <p>Plots · Houses · Commercial</p>
+      </div>
+    </div>
+    <div class="area-card" onclick="window.open('https://wa.me/923155881733?text=I%27m%20looking%20for%20property%20in%20Havelian.','_blank')">
+      <div class="area-bg"></div>
+      <div class="area-body">
+        <h3>Havelian</h3>
+        <p>Houses · Schemes · Plots</p>
+      </div>
+    </div>
+    <div class="area-card" onclick="window.open('https://wa.me/923155881733?text=I%27m%20looking%20for%20property%20in%20Abbottabad.','_blank')">
+      <div class="area-bg"></div>
+      <div class="area-body">
+        <h3>Abbottabad</h3>
+        <p>Residential · Investment</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Expanding soon to Haripur · Mansehra · Islamabad · Rawalpindi</p>
+</section>
+
+<!-- SELL BANNER -->
+<section id="sell">
+  <p class="section-label">Sell Your Property</p>
+  <h2 class="section-title" style="color:white;">Have a Property to Sell?<br><em>We'll Market It For You.</em></h2>
+  <p>Submit your property details and we will verify, list, and connect you with serious buyers across Hazara. Fast, professional, trusted.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="https://wa.me/923155881733?text=I%20want%20to%20sell%20my%20property%20through%20Badr%20Real%20Estate.%20Please%20guide%20me." class="btn-gold" target="_blank">List via WhatsApp</a>
+    <a href="#contact" class="btn-outline">Fill Contact Form</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Get in Touch</p>
+  <h2 class="section-title">Let's Talk <em>Property</em></h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Whether you're buying, selling, or just exploring options — our team is here to help. Reach out through WhatsApp for the fastest response.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span>Phone</span>
+          <a href="tel:+923155881733">0315 5881733</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span>Email</span>
+          <a href="mailto:ah59099312@gmail.com">ah59099312@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span>Area</span>
+          <strong>Sultanpur & Havelian, KPK</strong>
+        </div>
+      </div>
+
+      <a href="https://wa.me/923155881733?text=Hello%2C%20I%20want%20to%20discuss%20a%20property%20with%20Badr%20Real%20Estate." class="contact-wa-big" target="_blank">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp Now
+      </a>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Full Name">
+        <input type="tel" placeholder="Phone Number (WhatsApp Preferred)">
+        <select>
+          <option value="" disabled selected>I want to...</option>
+          <option>Buy a Property</option>
+          <option>Sell a Property</option>
+          <option>Invest in Property</option>
+          <option>Get Property Valuation</option>
+        </select>
+        <input type="text" placeholder="Area of Interest (e.g. Sultanpur, Havelian)">
+        <textarea placeholder="Tell us about the property you're looking for..."></textarea>
+        <button onclick="var n=this.closest('.contact-form').querySelector('input').value;var p=this.closest('.contact-form').querySelectorAll('input')[1].value;var s=this.closest('.contact-form').querySelector('select').value;window.open('https://wa.me/923155881733?text=Hello%2C%20my%20name%20is%20'+encodeURIComponent(n||'a client')+'%2C%20phone%20'+encodeURIComponent(p||'')+'%2C%20I%20want%20to%20'+encodeURIComponent(s||'discuss property')+'%20in%20Badr%20Real%20Estate.','_blank')">
+          Send via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Badr <span>Real Estate</span></div>
+  <p>Your Trusted Property Partner in Hazara</p>
+  <div class="footer-links">
+    <a href="#properties">Properties</a>
+    <a href="#why">Why Us</a>
+    <a href="#areas">Areas</a>
+    <a href="#sell">Sell</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/923155881733" target="_blank">WhatsApp</a>
+  </div>
+  <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);">Sultanpur · Havelian · Abbottabad · Hazara Region, KPK</p>
+  <p class="copy">© 2025 Badr Real Estate · Founder: Muhammad Ayan Khan · 0315 5881733</p>
+</footer>
+
+</body>
+</html>
+HTMLEOF
+echo "Done"
+Done
