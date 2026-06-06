@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – SA Real Estate | Saifullah & Ayan Real Estate Havelian</title>
+<meta name="description" content="SA Real Estate is Havelian and Sultanpur's most trusted property dealer. Learn about our mission, values and commitment to transparent real estate transactions across Hazara region, KPK.">
+<meta name="keywords" content="about SA Real Estate, property dealer Havelian, real estate Sultanpur, trusted property agent Hazara, Saifullah Ayan Real Estate about">
+<link rel="canonical" href="https://sarealestate.pk/about.html">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-hero {
+  min-height: 60vh;
+  background:
+    linear-gradient(to bottom, rgba(13,27,42,0.6) 0%, rgba(13,27,42,0.92) 70%, var(--navy) 100%),
+    url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80') center/cover no-repeat;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 5vw 5rem;
+}
+.about-hero p { max-width: 580px; margin: 1rem auto 0; color: rgba(255,255,255,0.6); font-size: 1rem; }
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.mission-text p { color: rgba(255,255,255,0.68); margin-bottom: 1.2rem; }
+.mission-visual {
+  background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem;
+}
+.mission-stat { border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; }
+.mission-stat:last-child { border-bottom: none; padding-bottom: 0; }
+.mission-stat strong { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); display: block; line-height: 1; }
+.mission-stat span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+.value-card {
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.2rem;
+  text-align: center; transition: border-color 0.2s;
+}
+.value-card:hover { border-color: var(--gold); }
+.value-icon { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); margin-bottom: 0.6rem; }
+.value-card h3 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
+.value-card p { font-size: 0.78rem; color: var(--text-muted); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.service-card {
+  background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1.8rem; transition: border-color 0.2s;
+}
+.service-card:hover { border-color: var(--gold); }
+.service-number {
+  font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300;
+  color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.8rem;
+}
+.service-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+.service-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+.process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative; }
+.process-step { display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; padding-bottom: 2.5rem; position: relative; }
+.process-step:last-child { padding-bottom: 0; }
+.step-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(201,168,76,0.1); border: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold);
+  flex-shrink: 0; position: relative; z-index: 1;
+}
+.step-line {
+  position: absolute; left: 22px; top: 44px; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.step-content h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; padding-top: 0.55rem; }
+.step-content p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
+@media (max-width: 700px) {
+  .mission-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="properties.html">Properties</a>
+  <a href="about.html">About Us</a>
+  <a href="founders.html">Founders</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">SA <span>Real Estate</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="founders.html">Founders</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-wa" onclick="event.preventDefault(); openWaModal('Hello SA Real Estate.');">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <span class="section-label">About SA Real Estate</span>
+  <h1 style="font-size:clamp(2rem,5vw,3.8rem);">Trusted Property Partner<br>in <em>Hazara</em></h1>
+  <p>Saifullah & Ayan Real Estate is on a mission to bring trust, transparency and modern technology to the property market of Havelian, Sultanpur and Abbottabad.</p>
+</div>
+
+<!-- MISSION -->
+<section style="background:var(--navy);">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title">Simplifying Property in <em>Hazara</em></h2>
+      <div class="divider"></div>
+      <p>SA Real Estate — Saifullah & Ayan Real Estate — was founded with one clear mission: to make buying, selling and investing in property across Hazara simple, honest and accessible to everyone.</p>
+      <p>The local real estate market has long been driven by informal relationships and word of mouth. While trust is a cornerstone of our business too, we believe buyers and sellers deserve verified information, clear pricing, and professional guidance at every step.</p>
+      <p>We operate as a trusted middleman between property owners and buyers — verifying every listing, connecting serious parties, and ensuring transactions are completed with complete transparency.</p>
+      <p>Our vision is to become the most recognised property brand in Hazara — and eventually, one of Pakistan's leading regional digital property platforms.</p>
+    </div>
+    <div class="mission-visual">
+      <div class="mission-stat"><strong>100%</strong><span>Verified Listings</span></div>
+      <div class="mission-stat"><strong>3</strong><span>Cities Covered</span></div>
+      <div class="mission-stat"><strong>24/7</strong><span>WhatsApp Support</span></div>
+      <div class="mission-stat"><strong>0</strong><span>Hidden Charges</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="background:var(--navy-light);">
+  <span class="section-label">What We Stand For</span>
+  <h2 class="section-title">Our Core <em>Values</em></h2>
+  <div class="divider"></div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">✦</div>
+      <h3>Trust</h3>
+      <p>Every relationship starts and ends with trust. We never compromise it.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◎</div>
+      <h3>Transparency</h3>
+      <p>Clear pricing, honest commission, no hidden surprises.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⬡</div>
+      <h3>Integrity</h3>
+      <p>We do what we say. Our word is our contract.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">▲</div>
+      <h3>Professionalism</h3>
+      <p>Every client receives expert, respectful and timely service.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <h3>Satisfaction</h3>
+      <p>We are not done until you are completely satisfied.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⌬</div>
+      <h3>Innovation</h3>
+      <p>We use technology to serve you better than traditional agents.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section style="background:var(--navy);">
+  <span class="section-label">What We Offer</span>
+  <h2 class="section-title">Our <em>Services</em></h2>
+  <div class="divider"></div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>Property Sales</h3>
+      <p>We connect serious buyers with verified sellers across Sultanpur, Havelian and Abbottabad. Residential plots, houses, commercial and agricultural land.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>Property Marketing</h3>
+      <p>We professionally market your property through our online platform, WhatsApp network, and local connections to reach the right buyers fast.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>Investment Consultation</h3>
+      <p>Not sure where to invest? Our team provides honest, data-driven guidance on which areas and property types offer the best returns in Hazara.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <h3>Property Valuation</h3>
+      <p>Get an accurate, honest valuation of your property based on real market data, location, and current demand — before you buy or sell.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <h3>Buyer Matching</h3>
+      <p>If you have a property to sell, we work our network to find the right buyer quickly. No time wasters — only serious, vetted buyers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <h3>Documentation Support</h3>
+      <p>We guide you through the entire documentation process — registry, transfer, fard — so nothing gets missed and everything goes smoothly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section style="background:var(--navy-light);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;" class="process-outer">
+    <div>
+      <span class="section-label">For Buyers</span>
+      <h2 class="section-title">How Buying <em>Works</em></h2>
+      <div class="divider"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>WhatsApp Us</h3><p>Tell us your budget, preferred location and property type. We respond within minutes.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Browse Options</h3><p>We share matching listings with photos, prices and full details for your review.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Site Visit</h3><p>We arrange a visit to your shortlisted properties at a time convenient for you.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">4</div></div>
+          <div class="step-content"><h3>Complete Purchase</h3><p>We guide you through documentation, registry and transfer until the property is yours.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="section-label">For Sellers</span>
+      <h2 class="section-title">How Selling <em>Works</em></h2>
+      <div class="divider"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Submit Your Property</h3><p>Share property details, photos and your asking price with us on WhatsApp.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Verification & Listing</h3><p>We verify details and list your property on our platform and WhatsApp network.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-content"><h3>Buyer Matching</h3><p>We connect you with serious, vetted buyers who match your property profile.</p></div>
+        </div>
+        <div class="process-step">
+          <div><div class="step-num">4</div></div>
+          <div class="step-content"><h3>Close the Deal</h3><p>We facilitate negotiation, site visits and paperwork until the sale is complete.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--navy);text-align:center;">
+  <span class="section-label">Ready to Start?</span>
+  <h2 class="section-title">Let's Find Your <em>Property</em></h2>
+  <div class="divider" style="margin:1.2rem auto 1.5rem;"></div>
+  <p style="max-width:500px;margin:0 auto 2rem;color:var(--text-muted);">Whether you are buying, selling or investing — our team is ready to help you right now on WhatsApp.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="#" class="btn-wa" onclick="event.preventDefault(); openWaModal('Hello, I want to discuss a property.');">
+      <svg viewBox="0 0 24 24" fill="white" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <a href="contact.html" class="btn-outline">Contact Form</a>
+    <a href="properties.html" class="btn-gold">Browse Properties</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-text">SA <span>Real Estate</span></div>
+      <p class="footer-desc">Saifullah & Ayan Real Estate — verified properties, honest service, local expertise in Havelian, Sultanpur and Abbottabad.</p>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+        <a href="https://wa.me/923165662698" target="_blank" class="btn-wa" style="font-size:0.78rem;padding:0.5rem 1rem;">Saifullah: </a>
+        <a href="https://wa.me/923155881733" target="_blank" class="btn-wa" style="font-size:0.78rem;padding:0.5rem 1rem;">Ayan: 0315-5881733</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li><li><a href="about.html">About Us</a></li><li><a href="founders.html">Founders</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="about.html">Property Sales</a></li><li><a href="about.html">Property Marketing</a></li><li><a href="about.html">Investment Advice</a></li><li><a href="about.html">Valuation</a></li></ul></div>
+    <div class="footer-col"><h4>Areas</h4><ul><li><a href="properties.html">Sultanpur</a></li><li><a href="properties.html">Havelian</a></li><li><a href="properties.html">Abbottabad</a></li><li><a href="properties.html">Hazara Region</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 SA Real Estate – Saifullah & Ayan Real Estate · Havelian, KPK</p>
+    <p>Property Dealer Havelian · Sultanpur · Abbottabad</p>
+  </div>
+</footer>
+
+<div class="float-wa-wrapper">
+  <div class="wa-options" id="waOptions">
+    <a href="https://wa.me/923165662698?text=Hello%20SA%20Real%20Estate." class="wa-option-btn" target="_blank"><span class="dot"></span>Saifullah – </a>
+    <a href="https://wa.me/923155881733?text=Hello%20SA%20Real%20Estate." class="wa-option-btn" target="_blank"><span class="dot"></span>Ayan – 0315-5881733</a>
+  </div>
+  <button class="float-wa-btn" id="floatWaBtn" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+</div>
+<script src="js/main.js"></script>
+<style>
+@media (max-width: 750px) { .process-outer { grid-template-columns: 1fr !important; } }
+</style>
+</body>
+</html>
